@@ -2,6 +2,7 @@
 _site/
 _drafts/
 _drafts
+assets/binary/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
