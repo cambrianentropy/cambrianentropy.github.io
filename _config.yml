@@ -6,6 +6,9 @@ url:                 https://cambrianentropy.com
 baseurl:             ''
 paginate:            5
 permalink:           pretty
+twitter_username:    cambrianentropy
+title_image:         https://i.imgur.com/nrvec5T.jpg
+meta_description:    Musings of a small business owner trying to get a picture of the macro.
 
 # About/contact
 author:

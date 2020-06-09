@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Citibank Never Let Me Apply for a PPP Loan
+image: https://i.imgur.com/8HAMNI3.jpg
 ---
 
 ![Bank Building](https://i.imgur.com/8HAMNI3.jpg)

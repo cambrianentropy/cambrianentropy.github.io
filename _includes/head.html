@@ -3,6 +3,32 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  
+  <!-- Twitter cards -->
+  <meta name="twitter:site"    content="@{{ site.twitter_username }}">
+  <meta name="twitter:creator" content="@{{ site.twitter_username }}">
+  
+  {% if paginator.total_posts %}
+    <meta name="twitter:title"   content="{{ site.title }}">
+    <meta name="twitter:description" content="{{ site.meta_description }}">
+  {% else %}
+    <meta name="twitter:title" content="{{ page.title }}">
+
+    {% if page.description %}
+      <meta name="twitter:description" content="{{ page.description }}">
+    {% else %}
+      <meta name="twitter:description" content="{{ page.content | strip_html | xml_escape | truncate: 200 }}">
+    {% endif %}
+  {% endif %}
+
+  {% if page.image %}
+  <meta name="twitter:card"  content="summary_large_image">
+  <meta name="twitter:image" content="{{ page.image }}">
+  {% else %}
+  <meta name="twitter:card"  content="summary">
+  <meta name="twitter:image" content="{{ site.title_image }}">
+  {% endif %}
+  <!-- end of Twitter cards -->
 
   <title>
     {% if page.title == "Home" %}
