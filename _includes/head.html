@@ -4,29 +4,36 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   
-  <!-- Twitter cards -->
+  <!-- social media stuff -->
   <meta name="twitter:site"    content="@{{ site.twitter_username }}">
   <meta name="twitter:creator" content="@{{ site.twitter_username }}">
   
   {% if paginator.total_posts %}
+
     <meta name="twitter:title"   content="{{ site.title }}">
     <meta name="twitter:description" content="{{ site.meta_description }}">
-  {% else %}
-    <meta name="twitter:title" content="{{ page.title }}">
 
-    {% if page.description %}
-      <meta name="twitter:description" content="{{ page.description }}">
-    {% else %}
-      <meta name="twitter:description" content="{{ page.content | strip_html | xml_escape | truncate: 200 }}">
-    {% endif %}
+  {% else %}
+    
+    {% assign description = page.description %}
+    {% unless description %}
+      {% assign description = page.content | strip_html | xml_escape | truncate: 200 %}
+    {% endunless %}
+
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta property="og:description" content="{{ description }}">
+
   {% endif %}
 
   {% if page.image %}
   <meta name="twitter:card"  content="summary_large_image">
   <meta name="twitter:image" content="{{ page.image }}">
+  <meta property="og:image" content="{{ page.image }}">
   {% else %}
   <meta name="twitter:card"  content="summary">
   <meta name="twitter:image" content="{{ site.title_image }}">
+  <meta property="og:image" content="{{ site.title_image }}">
   {% endif %}
   <!-- end of Twitter cards -->
 
